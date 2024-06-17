@@ -52,5 +52,5 @@ CUDA_VISIBLE_DEVICES=0,1 python train_mlm_v2_nok_multi_gpu.py -train 1000 -test 
 
 [CODE/train_mlm_v3_err_multi_gpu.py](https://github.com/unose/masked_lang_model/blob/main/CODE/train_mlm_v3_err_multi_gpu.py)
 
-This version uses the `notebook_launcher` function, which causes a runtime error. After comparing with the old version, the statement `torch.cuda.is_available()` [here](https://github.com/unose/masked_lang_model/blob/main/CODE/train_mlm_v3_err_multi_gpu.py:L74) is the root cause of this error. More investigation is needed.
+This version uses the `notebook_launcher` function, which causes a runtime error. After comparing with the old version, the statement `torch.cuda.is_available()` [here](https://github.com/unose/masked_lang_model/blob/main/CODE/train_mlm_v3_err_multi_gpu.py#L74) is the root cause of this error. More investigation is needed.
 
