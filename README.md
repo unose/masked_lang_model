@@ -8,7 +8,7 @@ The following three versions are almost similar to the online tutorial in the [H
 
 This version of the code utilizes multiple GPUs by leveraging the `notebook_launcher` function from the `accelerate` library. The `training_function()` implements the training and evaluation loop, performing the following steps:
 
-In training loop, the model is set to training mode with `model.train()`. The training loop iterates through the batches of data from `train_dataloader`. The model processes the batch to produce `outputs`. The loss is computed from the model's outputs.
+** In training loop **, the model is set to training mode with `model.train()`. The training loop iterates through the batches of data from `train_dataloader`. The model processes the batch to produce `outputs`. The loss is computed from the model's outputs.
 The backward pass is performed with `accelerator.backward(loss)`.
 The optimizer updates the model's parameters.
 The learning rate scheduler steps to adjust the learning rate.
@@ -45,3 +45,6 @@ By utilizing multiple GPUs, this implementation aims to improve the efficiency a
 ## Version 3
 
 [CODE/train_mlm_v3_err_multi_gpu.py](https://github.com/unose/masked_lang_model/blob/main/CODE/train_mlm_v3_err_multi_gpu.py)
+
+
+
