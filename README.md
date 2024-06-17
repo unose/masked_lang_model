@@ -41,12 +41,10 @@ By utilizing multiple GPUs, this implementation aims to improve the efficiency a
 
 This version does not use the `notebook_launcher` function. Instead, the `CUDA_VISIBLE_DEVICES` environment variable is set to "0,1" in the shell command. In addition, the Python script uses os.environ["CUDA_VISIBLE_DEVICES"] = "0,1". This ensures that only the specified GPUs (GPU 0 and GPU 1) are visible to the script.
 
-***However***, the [demo video](https://unomail-my.sharepoint.com/:v:/g/personal/myoungkyu_unomaha_edu/EZASbkSzTTJImGI_nsfEwT4B8kH358eeYl_8QE_e6jM0-g?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=nTaAkG) shows that this version is unable to use multiple GPUs.  
-
-
+***However***, the [demo video](https://unomail-my.sharepoint.com/:v:/g/personal/myoungkyu_unomaha_edu/EZASbkSzTTJImGI_nsfEwT4B8kH358eeYl_8QE_e6jM0-g?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=nTaAkG) shows that this version is unable to use multiple GPUs.  See the log file [CODE/log/log_ver2.txt](https://github.com/unose/masked_lang_model/blob/main/CODE/log/log_ver2.txt).
 
 ```
-CUDA_VISIBLE_DEVICES=0,1 python train_mlm_v1_ok_multi_gpu.py -train 1000 -test 100 -ngpu 2 -epoch 3 -logfile log_v1.txt
+CUDA_VISIBLE_DEVICES=0,1 python train_mlm_v2_nok_multi_gpu.py -train 1000 -test 100 -ngpu 2 -epoch 3 -logfile log_v2.txt
 ```
 
 ## Version 3
