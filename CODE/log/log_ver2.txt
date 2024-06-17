@@ -1,0 +1,238 @@
+/home/user1-selab3/miniconda3/envs/myenv_python3_11/lib/python3.11/site-packages/datasets/load.py:1429: FutureWarning: The repository for code_search_net contains custom code which must be executed to correctly load the dataset. You can inspect the repository content at https://hf.co/datasets/code_search_net
+You can avoid this message in future by passing the argument `trust_remote_code=True`.
+Passing `trust_remote_code=True` will be mandatory to load this dataset from the next major release of `datasets`.
+  warnings.warn(
+-----------------------------------------------------------------
+Number of CPU cores: 8
+Total RAM: 62.49 GB
+Transformers version: 4.36.2
+Torch version: 2.1.2+cu118
+Datasets version: 2.16.1
+Python version: 3.11.7
+torch.cuda.device_count(): 2
+-----------------------------------------------------------------
+-----------------------------------------------------------------
+[DBG] Begin load_dataset code_search_net
+-----------------------------------------------------------------
+codesearchnet_dataset:
+DatasetDict({
+    train: Dataset({
+        features: ['repository_name', 'func_path_in_repository', 'func_name', 'whole_func_string', 'language', 'func_code_string', 'func_code_tokens', 'func_documentation_string', 'func_documentation_tokens', 'split_name', 'func_code_url'],
+        num_rows: 1000
+    })
+    test: Dataset({
+        features: ['repository_name', 'func_path_in_repository', 'func_name', 'whole_func_string', 'language', 'func_code_string', 'func_code_tokens', 'func_documentation_string', 'func_documentation_tokens', 'split_name', 'func_code_url'],
+        num_rows: 100
+    })
+})
+-----------------------------------------------------------------
+[DBG] End load_dataset code_search_net
+-----------------------------------------------------------------
+-----------------------------------------------------------------
+[BGN] codesearchnet_dataset.map()
+-----------------------------------------------------------------
+Map:   0%|          | 0/1000 [00:00<?, ? examples/s]Token indices sequence length is longer than the specified maximum sequence length for this model (859 > 512). Running this sequence through the model will result in indexing errors
+Map: 100%|██████████| 1000/1000 [00:00<00:00, 2528.46 examples/s]Map: 100%|██████████| 1000/1000 [00:00<00:00, 2352.52 examples/s]
+Map:   0%|          | 0/100 [00:00<?, ? examples/s]Map: 100%|██████████| 100/100 [00:00<00:00, 2142.39 examples/s]
+-----------------------------------------------------------------
+[END] codesearchnet_dataset.map()
+-----------------------------------------------------------------
+-----------------------------------------------------------------
+[BGN] tokenized_datasets.map()
+-----------------------------------------------------------------
+Map:   0%|          | 0/1000 [00:00<?, ? examples/s]Map: 100%|██████████| 1000/1000 [00:02<00:00, 476.09 examples/s]Map: 100%|██████████| 1000/1000 [00:02<00:00, 474.45 examples/s]
+Map:   0%|          | 0/100 [00:00<?, ? examples/s]Map: 100%|██████████| 100/100 [00:00<00:00, 1821.84 examples/s]
+Configurations:
++---------------+-------+
+| Configuration | Value |
++---------------+-------+
+| train_size    | 1000  |
+| test_size     | 100   |
++---------------+-------+
+-----------------------------------------------------------------
+[END] tokenized_datasets.map()
+-----------------------------------------------------------------
+-----------------------------------------------------------------
+downsampled_dataset
+DatasetDict({
+    train: Dataset({
+        features: ['input_ids', 'attention_mask', 'word_ids', 'labels'],
+        num_rows: 1000
+    })
+    test: Dataset({
+        features: ['input_ids', 'attention_mask', 'word_ids', 'labels'],
+        num_rows: 100
+    })
+})
+-----------------------------------------------------------------
+-----------------------------------------------------------------
+[BGN] downsampled_dataset[test].map()
+-----------------------------------------------------------------
+Map:   0%|          | 0/100 [00:00<?, ? examples/s]Map: 100%|██████████| 100/100 [00:00<00:00, 3523.71 examples/s]
+Some weights of the model checkpoint at microsoft/codebert-base-mlm were not used when initializing RobertaForMaskedLM: ['roberta.pooler.dense.weight', 'roberta.pooler.dense.bias']
+- This IS expected if you are initializing RobertaForMaskedLM from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing RobertaForMaskedLM from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+-----------------------------------------------------------------
+[END] downsampled_dataset[test].map()
+-----------------------------------------------------------------
+-----------------------------------------------------------------
+GPU 0:
+  Total memory: 24564.0 MB
+  Free memory: 24232.0 MB
+  Used memory: 15.0 MB
+-----------------------------------------------------------------
+GPU 1:
+  Total memory: 24564.0 MB
+  Free memory: 23964.0 MB
+  Used memory: 281.0 MB
+-----------------------------------------------------------------
+-----------------------------------------------------------------
+[BGN] training_function()
+-----------------------------------------------------------------
+training_function() directly
+  0%|          | 0/96 [00:00<?, ?it/s]  1%|          | 1/96 [00:00<00:35,  2.65it/s]  2%|▏         | 2/96 [00:00<00:30,  3.12it/s]  3%|▎         | 3/96 [00:00<00:28,  3.27it/s]  4%|▍         | 4/96 [00:01<00:27,  3.34it/s]  5%|▌         | 5/96 [00:01<00:26,  3.38it/s]  6%|▋         | 6/96 [00:01<00:26,  3.40it/s]  7%|▋         | 7/96 [00:02<00:26,  3.42it/s]  8%|▊         | 8/96 [00:02<00:25,  3.43it/s]  9%|▉         | 9/96 [00:02<00:25,  3.43it/s] 10%|█         | 10/96 [00:02<00:25,  3.43it/s] 11%|█▏        | 11/96 [00:03<00:24,  3.44it/s] 12%|█▎        | 12/96 [00:03<00:24,  3.44it/s] 14%|█▎        | 13/96 [00:03<00:24,  3.45it/s] 15%|█▍        | 14/96 [00:04<00:23,  3.45it/s] 16%|█▌        | 15/96 [00:04<00:23,  3.45it/s] 17%|█▋        | 16/96 [00:04<00:23,  3.45it/s] 18%|█▊        | 17/96 [00:05<00:22,  3.44it/s] 19%|█▉        | 18/96 [00:05<00:22,  3.44it/s] 20%|█▉        | 19/96 [00:05<00:22,  3.44it/s] 21%|██        | 20/96 [00:05<00:22,  3.44it/s] 22%|██▏       | 21/96 [00:06<00:21,  3.44it/s] 23%|██▎       | 22/96 [00:06<00:21,  3.44it/s] 24%|██▍       | 23/96 [00:06<00:21,  3.43it/s] 25%|██▌       | 24/96 [00:07<00:20,  3.43it/s] 26%|██▌       | 25/96 [00:07<00:20,  3.45it/s] 27%|██▋       | 26/96 [00:07<00:20,  3.45it/s] 28%|██▊       | 27/96 [00:07<00:20,  3.45it/s] 29%|██▉       | 28/96 [00:08<00:19,  3.44it/s] 30%|███       | 29/96 [00:08<00:19,  3.44it/s] 31%|███▏      | 30/96 [00:08<00:19,  3.44it/s] 32%|███▏      | 31/96 [00:09<00:18,  3.48it/s]---------------Nvidia GPU---------------
+Sun Jun 16 22:11:42 2024       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 535.154.05             Driver Version: 535.154.05   CUDA Version: 12.2     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  NVIDIA RTX A5000               Off | 00000000:17:00.0 Off |                  Off |
+| 30%   48C    P2             212W / 230W |   8617MiB / 24564MiB |     90%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+|   1  NVIDIA RTX A5000               Off | 00000000:65:00.0 Off |                  Off |
+| 30%   35C    P8              15W / 230W |    284MiB / 24564MiB |      0%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|    0   N/A  N/A      1666      G   /usr/lib/xorg/Xorg                            4MiB |
+|    0   N/A  N/A      3486      G   /usr/lib/xorg/Xorg                            4MiB |
+|    0   N/A  N/A    696579      C   python                                     8596MiB |
+|    1   N/A  N/A      1666      G   /usr/lib/xorg/Xorg                           77MiB |
+|    1   N/A  N/A      3486      G   /usr/lib/xorg/Xorg                          134MiB |
+|    1   N/A  N/A      3620      G   /usr/bin/gnome-shell                         50MiB |
++---------------------------------------------------------------------------------------+
+
+-----------------------------------------------------------------
+GPU 0:
+  Total memory: 24564.0 MB
+  Free memory: 15630.0 MB
+  Used memory: 8617.0 MB
+-----------------------------------------------------------------
+GPU 1:
+  Total memory: 24564.0 MB
+  Free memory: 23961.0 MB
+  Used memory: 284.0 MB
+-----------------------------------------------------------------
+ 33%|███▎      | 32/96 [00:09<00:22,  2.87it/s]>>> Epoch 0: Loss: 1.3825454711914062
+/home/user1-selab3/Documents/workshop-docker/masked-lang-model/scripts/train_mlm_v2_nok_multi_gpu.py:295: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  perplexity = torch.exp(torch.tensor(loss))
+>>> Epoch 0: Perplexity: 3.985032558441162
+>>> Epoch 0: Entropy: 4.8183794021606445
+ 34%|███▍      | 33/96 [00:11<00:45,  1.38it/s] 35%|███▌      | 34/96 [00:11<00:36,  1.68it/s] 36%|███▋      | 35/96 [00:11<00:30,  1.98it/s] 38%|███▊      | 36/96 [00:12<00:26,  2.27it/s] 39%|███▊      | 37/96 [00:12<00:23,  2.53it/s] 40%|███▉      | 38/96 [00:12<00:21,  2.74it/s] 41%|████      | 39/96 [00:12<00:19,  2.92it/s] 42%|████▏     | 40/96 [00:13<00:18,  3.06it/s] 43%|████▎     | 41/96 [00:13<00:17,  3.17it/s] 44%|████▍     | 42/96 [00:13<00:16,  3.25it/s] 45%|████▍     | 43/96 [00:14<00:16,  3.30it/s] 46%|████▌     | 44/96 [00:14<00:15,  3.35it/s] 47%|████▋     | 45/96 [00:14<00:14,  3.41it/s] 48%|████▊     | 46/96 [00:14<00:14,  3.46it/s] 49%|████▉     | 47/96 [00:15<00:13,  3.50it/s] 50%|█████     | 48/96 [00:15<00:13,  3.53it/s] 51%|█████     | 49/96 [00:15<00:13,  3.56it/s] 52%|█████▏    | 50/96 [00:16<00:12,  3.58it/s] 53%|█████▎    | 51/96 [00:16<00:12,  3.59it/s] 54%|█████▍    | 52/96 [00:16<00:12,  3.59it/s] 55%|█████▌    | 53/96 [00:16<00:11,  3.60it/s] 56%|█████▋    | 54/96 [00:17<00:11,  3.60it/s] 57%|█████▋    | 55/96 [00:17<00:11,  3.60it/s] 58%|█████▊    | 56/96 [00:17<00:11,  3.60it/s] 59%|█████▉    | 57/96 [00:17<00:10,  3.61it/s] 60%|██████    | 58/96 [00:18<00:10,  3.61it/s] 61%|██████▏   | 59/96 [00:18<00:10,  3.61it/s] 62%|██████▎   | 60/96 [00:18<00:09,  3.61it/s] 64%|██████▎   | 61/96 [00:19<00:09,  3.60it/s] 65%|██████▍   | 62/96 [00:19<00:09,  3.60it/s] 66%|██████▌   | 63/96 [00:19<00:09,  3.63it/s]---------------Nvidia GPU---------------
+Sun Jun 16 22:11:53 2024       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 535.154.05             Driver Version: 535.154.05   CUDA Version: 12.2     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  NVIDIA RTX A5000               Off | 00000000:17:00.0 Off |                  Off |
+| 30%   54C    P2             212W / 230W |   9427MiB / 24564MiB |     76%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+|   1  NVIDIA RTX A5000               Off | 00000000:65:00.0 Off |                  Off |
+| 30%   36C    P8              17W / 230W |    284MiB / 24564MiB |      0%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|    0   N/A  N/A      1666      G   /usr/lib/xorg/Xorg                            4MiB |
+|    0   N/A  N/A      3486      G   /usr/lib/xorg/Xorg                            4MiB |
+|    0   N/A  N/A    696579      C   python                                     9406MiB |
+|    1   N/A  N/A      1666      G   /usr/lib/xorg/Xorg                           77MiB |
+|    1   N/A  N/A      3486      G   /usr/lib/xorg/Xorg                          134MiB |
+|    1   N/A  N/A      3620      G   /usr/bin/gnome-shell                         50MiB |
++---------------------------------------------------------------------------------------+
+
+-----------------------------------------------------------------
+GPU 0:
+  Total memory: 24564.0 MB
+  Free memory: 14820.0 MB
+  Used memory: 9427.0 MB
+-----------------------------------------------------------------
+GPU 1:
+  Total memory: 24564.0 MB
+  Free memory: 23961.0 MB
+  Used memory: 284.0 MB
+-----------------------------------------------------------------
+ 67%|██████▋   | 64/96 [00:20<00:10,  3.16it/s]>>> Epoch 1: Loss: 1.3253753185272217
+/home/user1-selab3/Documents/workshop-docker/masked-lang-model/scripts/train_mlm_v2_nok_multi_gpu.py:295: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  perplexity = torch.exp(torch.tensor(loss))
+>>> Epoch 1: Perplexity: 3.7635977268218994
+>>> Epoch 1: Entropy: 4.8307342529296875
+ 68%|██████▊   | 65/96 [00:21<00:21,  1.42it/s] 69%|██████▉   | 66/96 [00:21<00:17,  1.72it/s] 70%|██████▉   | 67/96 [00:22<00:14,  2.02it/s] 71%|███████   | 68/96 [00:22<00:12,  2.31it/s] 72%|███████▏  | 69/96 [00:22<00:10,  2.56it/s] 73%|███████▎  | 70/96 [00:23<00:09,  2.77it/s] 74%|███████▍  | 71/96 [00:23<00:08,  2.93it/s] 75%|███████▌  | 72/96 [00:23<00:07,  3.06it/s] 76%|███████▌  | 73/96 [00:23<00:07,  3.16it/s] 77%|███████▋  | 74/96 [00:24<00:06,  3.24it/s] 78%|███████▊  | 75/96 [00:24<00:06,  3.29it/s] 79%|███████▉  | 76/96 [00:24<00:05,  3.33it/s] 80%|████████  | 77/96 [00:25<00:05,  3.36it/s] 81%|████████▏ | 78/96 [00:25<00:05,  3.38it/s] 82%|████████▏ | 79/96 [00:25<00:05,  3.39it/s] 83%|████████▎ | 80/96 [00:26<00:04,  3.40it/s] 84%|████████▍ | 81/96 [00:26<00:04,  3.40it/s] 85%|████████▌ | 82/96 [00:26<00:04,  3.40it/s] 86%|████████▋ | 83/96 [00:26<00:03,  3.41it/s] 88%|████████▊ | 84/96 [00:27<00:03,  3.41it/s] 89%|████████▊ | 85/96 [00:27<00:03,  3.42it/s] 90%|████████▉ | 86/96 [00:27<00:02,  3.41it/s] 91%|█████████ | 87/96 [00:28<00:02,  3.40it/s] 92%|█████████▏| 88/96 [00:28<00:02,  3.41it/s] 93%|█████████▎| 89/96 [00:28<00:02,  3.41it/s] 94%|█████████▍| 90/96 [00:28<00:01,  3.40it/s] 95%|█████████▍| 91/96 [00:29<00:01,  3.41it/s] 96%|█████████▌| 92/96 [00:29<00:01,  3.41it/s] 97%|█████████▋| 93/96 [00:29<00:00,  3.41it/s] 98%|█████████▊| 94/96 [00:30<00:00,  3.41it/s] 99%|█████████▉| 95/96 [00:30<00:00,  3.46it/s]---------------Nvidia GPU---------------
+Sun Jun 16 22:12:04 2024       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 535.154.05             Driver Version: 535.154.05   CUDA Version: 12.2     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  NVIDIA RTX A5000               Off | 00000000:17:00.0 Off |                  Off |
+| 30%   59C    P2             207W / 230W |   9427MiB / 24564MiB |     68%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+|   1  NVIDIA RTX A5000               Off | 00000000:65:00.0 Off |                  Off |
+| 30%   35C    P8              15W / 230W |    284MiB / 24564MiB |      0%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|    0   N/A  N/A      1666      G   /usr/lib/xorg/Xorg                            4MiB |
+|    0   N/A  N/A      3486      G   /usr/lib/xorg/Xorg                            4MiB |
+|    0   N/A  N/A    696579      C   python                                     9406MiB |
+|    1   N/A  N/A      1666      G   /usr/lib/xorg/Xorg                           77MiB |
+|    1   N/A  N/A      3486      G   /usr/lib/xorg/Xorg                          134MiB |
+|    1   N/A  N/A      3620      G   /usr/bin/gnome-shell                         50MiB |
++---------------------------------------------------------------------------------------+
+
+-----------------------------------------------------------------
+GPU 0:
+  Total memory: 24564.0 MB
+  Free memory: 14820.0 MB
+  Used memory: 9427.0 MB
+-----------------------------------------------------------------
+GPU 1:
+  Total memory: 24564.0 MB
+  Free memory: 23961.0 MB
+  Used memory: 284.0 MB
+-----------------------------------------------------------------
+100%|██████████| 96/96 [00:30<00:00,  2.93it/s]>>> Epoch 2: Loss: 1.1803604364395142
+/home/user1-selab3/Documents/workshop-docker/masked-lang-model/scripts/train_mlm_v2_nok_multi_gpu.py:295: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  perplexity = torch.exp(torch.tensor(loss))
+>>> Epoch 2: Perplexity: 3.255547285079956
+>>> Epoch 2: Entropy: 4.841192245483398
+100%|██████████| 96/96 [00:32<00:00,  2.98it/s]
+Elapsed time: 0 minutes 32 seconds
+-----------------------------------------------------------------
+[END] training_function()
+-----------------------------------------------------------------

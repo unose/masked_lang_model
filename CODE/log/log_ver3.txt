@@ -1,0 +1,154 @@
+/home/user1-selab3/miniconda3/envs/myenv_python3_11/lib/python3.11/site-packages/datasets/load.py:1429: FutureWarning: The repository for code_search_net contains custom code which must be executed to correctly load the dataset. You can inspect the repository content at https://hf.co/datasets/code_search_net
+You can avoid this message in future by passing the argument `trust_remote_code=True`.
+Passing `trust_remote_code=True` will be mandatory to load this dataset from the next major release of `datasets`.
+  warnings.warn(
+-----------------------------------------------------------------
+Number of CPU cores: 8
+Total RAM: 62.49 GB
+Transformers version: 4.36.2
+Torch version: 2.1.2+cu118
+Datasets version: 2.16.1
+Python version: 3.11.7
+torch.cuda.is_available(): True
+torch.cuda.device_count(): 2
+-----------------------------------------------------------------
+-----------------------------------------------------------------
+[DBG] Begin load_dataset code_search_net
+-----------------------------------------------------------------
+codesearchnet_dataset:
+DatasetDict({
+    train: Dataset({
+        features: ['repository_name', 'func_path_in_repository', 'func_name', 'whole_func_string', 'language', 'func_code_string', 'func_code_tokens', 'func_documentation_string', 'func_documentation_tokens', 'split_name', 'func_code_url'],
+        num_rows: 1000
+    })
+    test: Dataset({
+        features: ['repository_name', 'func_path_in_repository', 'func_name', 'whole_func_string', 'language', 'func_code_string', 'func_code_tokens', 'func_documentation_string', 'func_documentation_tokens', 'split_name', 'func_code_url'],
+        num_rows: 100
+    })
+})
+-----------------------------------------------------------------
+[DBG] End load_dataset code_search_net
+-----------------------------------------------------------------
+-----------------------------------------------------------------
+[BGN] codesearchnet_dataset.map()
+-----------------------------------------------------------------
+Map:   0%|          | 0/1000 [00:00<?, ? examples/s]Token indices sequence length is longer than the specified maximum sequence length for this model (686 > 512). Running this sequence through the model will result in indexing errors
+Map: 100%|██████████| 1000/1000 [00:00<00:00, 2603.14 examples/s]Map: 100%|██████████| 1000/1000 [00:00<00:00, 2423.57 examples/s]
+Map:   0%|          | 0/100 [00:00<?, ? examples/s]Map: 100%|██████████| 100/100 [00:00<00:00, 1625.74 examples/s]
+-----------------------------------------------------------------
+[END] codesearchnet_dataset.map()
+-----------------------------------------------------------------
+-----------------------------------------------------------------
+[BGN] tokenized_datasets.map()
+-----------------------------------------------------------------
+Map:   0%|          | 0/1000 [00:00<?, ? examples/s]Map: 100%|██████████| 1000/1000 [00:01<00:00, 539.06 examples/s]Map: 100%|██████████| 1000/1000 [00:01<00:00, 532.61 examples/s]
+Map:   0%|          | 0/100 [00:00<?, ? examples/s]Map: 100%|██████████| 100/100 [00:00<00:00, 1046.40 examples/s]
+Configurations:
++---------------+-------+
+| Configuration | Value |
++---------------+-------+
+| train_size    | 1000  |
+| test_size     | 100   |
++---------------+-------+
+-----------------------------------------------------------------
+[END] tokenized_datasets.map()
+-----------------------------------------------------------------
+-----------------------------------------------------------------
+downsampled_dataset
+DatasetDict({
+    train: Dataset({
+        features: ['input_ids', 'attention_mask', 'word_ids', 'labels'],
+        num_rows: 1000
+    })
+    test: Dataset({
+        features: ['input_ids', 'attention_mask', 'word_ids', 'labels'],
+        num_rows: 100
+    })
+})
+-----------------------------------------------------------------
+-----------------------------------------------------------------
+[BGN] downsampled_dataset[test].map()
+-----------------------------------------------------------------
+Map:   0%|          | 0/100 [00:00<?, ? examples/s]Map: 100%|██████████| 100/100 [00:00<00:00, 3571.54 examples/s]
+-----------------------------------------------------------------
+[END] downsampled_dataset[test].map()
+-----------------------------------------------------------------
+-----------------------------------------------------------------
+GPU 0:
+  Total memory: 24564.0 MB
+  Free memory: 24229.0 MB
+  Used memory: 18.0 MB
+-----------------------------------------------------------------
+GPU 1:
+  Total memory: 24564.0 MB
+  Free memory: 23961.0 MB
+  Used memory: 284.0 MB
+-----------------------------------------------------------------
+-----------------------------------------------------------------
+[BGN] training_function()
+-----------------------------------------------------------------
+notebook_launcher()
+Launching training on 2 GPUs.
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+Some weights of the model checkpoint at microsoft/codebert-base-mlm were not used when initializing RobertaForMaskedLM: ['roberta.pooler.dense.weight', 'roberta.pooler.dense.bias']
+- This IS expected if you are initializing RobertaForMaskedLM from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing RobertaForMaskedLM from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at microsoft/codebert-base-mlm were not used when initializing RobertaForMaskedLM: ['roberta.pooler.dense.weight', 'roberta.pooler.dense.bias']
+- This IS expected if you are initializing RobertaForMaskedLM from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing RobertaForMaskedLM from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Traceback (most recent call last):
+  File "/home/user1-selab3/miniconda3/envs/myenv_python3_11/lib/python3.11/site-packages/accelerate/launchers.py", line 186, in notebook_launcher
+    start_processes(launcher, args=args, nprocs=num_processes, start_method="fork")
+  File "/home/user1-selab3/miniconda3/envs/myenv_python3_11/lib/python3.11/site-packages/torch/multiprocessing/spawn.py", line 202, in start_processes
+    while not context.join():
+              ^^^^^^^^^^^^^^
+  File "/home/user1-selab3/miniconda3/envs/myenv_python3_11/lib/python3.11/site-packages/torch/multiprocessing/spawn.py", line 163, in join
+    raise ProcessRaisedException(msg, error_index, failed_process.pid)
+torch.multiprocessing.spawn.ProcessRaisedException: 
+
+-- Process 1 terminated with the following error:
+Traceback (most recent call last):
+  File "/home/user1-selab3/miniconda3/envs/myenv_python3_11/lib/python3.11/site-packages/torch/multiprocessing/spawn.py", line 74, in _wrap
+    fn(i, *args)
+  File "/home/user1-selab3/miniconda3/envs/myenv_python3_11/lib/python3.11/site-packages/accelerate/utils/launch.py", line 562, in __call__
+    self.launcher(*args)
+  File "/home/user1-selab3/Documents/workshop-docker/masked-lang-model/scripts/train_mlm_v3_err_multi_gpu.py", line 251, in training_function
+    accelerator = Accelerator()
+                  ^^^^^^^^^^^^^
+  File "/home/user1-selab3/miniconda3/envs/myenv_python3_11/lib/python3.11/site-packages/accelerate/accelerator.py", line 371, in __init__
+    self.state = AcceleratorState(
+                 ^^^^^^^^^^^^^^^^^
+  File "/home/user1-selab3/miniconda3/envs/myenv_python3_11/lib/python3.11/site-packages/accelerate/state.py", line 758, in __init__
+    PartialState(cpu, **kwargs)
+  File "/home/user1-selab3/miniconda3/envs/myenv_python3_11/lib/python3.11/site-packages/accelerate/state.py", line 218, in __init__
+    if not check_cuda_p2p_ib_support():
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user1-selab3/miniconda3/envs/myenv_python3_11/lib/python3.11/site-packages/accelerate/utils/environment.py", line 71, in check_cuda_p2p_ib_support
+    device_name = torch.cuda.get_device_name()
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user1-selab3/miniconda3/envs/myenv_python3_11/lib/python3.11/site-packages/torch/cuda/__init__.py", line 419, in get_device_name
+    return get_device_properties(device).name
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user1-selab3/miniconda3/envs/myenv_python3_11/lib/python3.11/site-packages/torch/cuda/__init__.py", line 449, in get_device_properties
+    _lazy_init()  # will define _get_device_properties
+    ^^^^^^^^^^^^
+  File "/home/user1-selab3/miniconda3/envs/myenv_python3_11/lib/python3.11/site-packages/torch/cuda/__init__.py", line 284, in _lazy_init
+    raise RuntimeError(
+RuntimeError: Cannot re-initialize CUDA in forked subprocess. To use CUDA with multiprocessing, you must use the 'spawn' start method
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/user1-selab3/Documents/workshop-docker/masked-lang-model/scripts/train_mlm_v3_err_multi_gpu.py", line 340, in <module>
+    notebook_launcher(training_function, num_processes = args.ngpu)
+  File "/home/user1-selab3/miniconda3/envs/myenv_python3_11/lib/python3.11/site-packages/accelerate/launchers.py", line 189, in notebook_launcher
+    raise RuntimeError(
+RuntimeError: CUDA has been initialized before the `notebook_launcher` could create a forked subprocess. This likely stems from an outside import causing issues once the `notebook_launcher()` is called. Please review your imports and test them when running the `notebook_launcher()` to identify which one is problematic and causing CUDA to be initialized.
