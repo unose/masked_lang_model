@@ -39,7 +39,9 @@ By utilizing multiple GPUs, this implementation aims to improve the efficiency a
 
 ## Version 2
 
-[CODE/train_mlm_v2_nok_multi_gpu.py](https://github.com/unose/masked_lang_model/blob/main/CODE/train_mlm_v2_nok_multi_gpu.py)
+- [CODE/train_mlm_v2_nok_multi_gpu.py](https://github.com/unose/masked_lang_model/blob/main/CODE/train_mlm_v2_nok_multi_gpu.py)
+- [CODE/log/log_ver2.txt](https://github.com/unose/masked_lang_model/blob/main/CODE/log/log_ver2.txt)
+- [Demo video](https://unomail-my.sharepoint.com/:v:/g/personal/myoungkyu_unomaha_edu/EZASbkSzTTJImGI_nsfEwT4B8kH358eeYl_8QE_e6jM0-g?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=nTaAkG)
 
 This version does not use the `notebook_launcher` function. Instead, the `CUDA_VISIBLE_DEVICES` environment variable is set to "0,1" in the shell command. In addition, the Python script uses os.environ["CUDA_VISIBLE_DEVICES"] = "0,1". This ensures that only the specified GPUs (GPU 0 and GPU 1) are visible to the script.
 
@@ -52,7 +54,9 @@ CUDA_VISIBLE_DEVICES=0,1 python train_mlm_v2_nok_multi_gpu.py -train 1000 -test 
 
 ## Version 3
 
-[CODE/train_mlm_v3_err_multi_gpu.py](https://github.com/unose/masked_lang_model/blob/main/CODE/train_mlm_v3_err_multi_gpu.py)
+- [CODE/train_mlm_v3_err_multi_gpu.py](https://github.com/unose/masked_lang_model/blob/main/CODE/train_mlm_v3_err_multi_gpu.py)
+- [CODE/log/log_ver3.txt](https://github.com/unose/masked_lang_model/blob/main/CODE/log/log_ver3.txt)
+- [Demo video](https://unomail-my.sharepoint.com/:v:/g/personal/myoungkyu_unomaha_edu/EUGdx1IqC1JKnSt5H4LwZGsBarZV9M_-CYtONHOEd0S7Uw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=HNfwrx)
 
 This version of the code utilizes the `notebook_launcher()` function, which unexpectedly results in a runtime error. Upon comparing it with the previously functional version, it became evident that the line responsible for the error is `torch.cuda.is_available()` (refer to [line 74](https://github.com/unose/masked_lang_model/blob/main/CODE/train_mlm_v3_err_multi_gpu.py#L74)). This function call checks whether CUDA-enabled GPUs are available for use. 
 
