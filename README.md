@@ -4,9 +4,9 @@ The following three versions are almost similar to the online tutorial in the [H
 
 ## Version 1
 
-[CODE/train_mlm_v1_ok_multi_gpu.py](https://github.com/unose/masked_lang_model/blob/main/CODE/train_mlm_v1_ok_multi_gpu.py)
-[CODE/log/log_ver1.txt](https://github.com/unose/masked_lang_model/blob/main/CODE/log/log_ver1.txt)
-[Demo video](https://unomail-my.sharepoint.com/:v:/g/personal/myoungkyu_unomaha_edu/Edoy9g3mBkhEsKIaZYJoJYkBbgWvkt6PqJlc6nBze8EayQ?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=rFeeHY)
+- [CODE/train_mlm_v1_ok_multi_gpu.py](https://github.com/unose/masked_lang_model/blob/main/CODE/train_mlm_v1_ok_multi_gpu.py)
+- [CODE/log/log_ver1.txt](https://github.com/unose/masked_lang_model/blob/main/CODE/log/log_ver1.txt)
+- [Demo video](https://unomail-my.sharepoint.com/:v:/g/personal/myoungkyu_unomaha_edu/Edoy9g3mBkhEsKIaZYJoJYkBbgWvkt6PqJlc6nBze8EayQ?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=rFeeHY)
 
 This version of the code utilizes multiple GPUs by leveraging the `notebook_launcher()` function from the `accelerate` library. The `training_function()` implements the training and evaluation loop, performing the following steps:
 
