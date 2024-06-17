@@ -1,6 +1,6 @@
 # Three Program Versions of Masked Language Model 
 
-The following three versions are almost similar to the online tutorial in the [Huggingface website](https://huggingface.co/learn/nlp-course/en/chapter7/3?fw=pt).
+The following three versions are almost similar to the online tutorial on the [Hugging Face website](https://huggingface.co/learn/nlp-course/en/chapter7/3?fw=pt). The Hugging Face provides a popular resource for natural language processing and machine learning models. These versions likely adopt similar methodologies, techniques, and possibly even specific implementations demonstrated in the tutorial.
 
 ## Version 1
 
