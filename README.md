@@ -15,14 +15,14 @@ The learning rate scheduler steps to adjust the learning rate.
 The optimizer's gradients are zeroed out for the next iteration.
 A progress bar is updated to track training progress.
 
-In evaluation loop, the model is set to evaluation mode with `model.eval()`.
+***In evaluation loop***, the model is set to evaluation mode with `model.eval()`.
 The evaluation loop iterates through the batches of data from `eval_dataloader`.
 For each batch, the model processes the batch without computing gradients (using `torch.no_grad()`).
 The loss for each batch is computed and gathered across GPUs.
 The average loss across all batches is computed.
 The average loss for the current epoch is logged.
 
-The perplexity metric, commonly used for evaluating language models, is computed from the average loss.
+***The perplexity metric***, commonly used for evaluating language models, is computed from the average loss.
 The perplexity for the current epoch is logged.
 The probabilities are computed from the gathered losses using the softmax function.
 The entropy is calculated from these probabilities, providing a measure of uncertainty in the model's predictions.
