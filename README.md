@@ -6,7 +6,7 @@ The following three versions are almost similar to the online tutorial in the [H
 
 [CODE/train_mlm_v1_ok_multi_gpu.py](https://github.com/unose/masked_lang_model/blob/main/CODE/train_mlm_v1_ok_multi_gpu.py)
 
-This version of the code utilizes multiple GPUs by leveraging the `notebook_launcher` function from the `accelerate` library. The `training_function()` implements the training and evaluation loop, performing the following steps:
+This version of the code ([see demo video]()) utilizes multiple GPUs by leveraging the `notebook_launcher` function from the `accelerate` library. The `training_function(https://unomail-my.sharepoint.com/:v:/g/personal/myoungkyu_unomaha_edu/Edoy9g3mBkhEsKIaZYJoJYkBbgWvkt6PqJlc6nBze8EayQ?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=rFeeHY)` implements the training and evaluation loop, performing the following steps:
 
 ***In training loop***, the model is set to training mode with `model.train()`. The training loop iterates through the batches of data from `train_dataloader`. The model processes the batch to produce `outputs`. The loss is computed from the model's outputs.
 The backward pass is performed with `accelerator.backward(loss)`.
@@ -39,8 +39,15 @@ By utilizing multiple GPUs, this implementation aims to improve the efficiency a
 
 [CODE/train_mlm_v2_nok_multi_gpu.py](https://github.com/unose/masked_lang_model/blob/main/CODE/train_mlm_v2_nok_multi_gpu.py)
 
+This version does not use the `notebook_launcher` function. Instead, the `CUDA_VISIBLE_DEVICES` environment variable is set to "0,1" in the shell command. In addition, the Python script uses os.environ["CUDA_VISIBLE_DEVICES"] = "0,1". This ensures that only the specified GPUs (GPU 0 and GPU 1) are visible to the script.
+
+***However***, the [demo video](https://unomail-my.sharepoint.com/:v:/g/personal/myoungkyu_unomaha_edu/EZASbkSzTTJImGI_nsfEwT4B8kH358eeYl_8QE_e6jM0-g?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=nTaAkG) shows that this version is unable to use multiple GPUs.  
 
 
+
+```
+CUDA_VISIBLE_DEVICES=0,1 python train_mlm_v1_ok_multi_gpu.py -train 1000 -test 100 -ngpu 2 -epoch 3 -logfile log_v1.txt
+```
 
 ## Version 3
 
