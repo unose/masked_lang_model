@@ -36,6 +36,10 @@ The model and tokenizer are saved using the `accelerator.save` function and the 
 
 By utilizing multiple GPUs, this implementation aims to improve the efficiency and speed of the training process. The `notebook_launcher` function facilitates the distribution of the training process across the specified number of GPUs (`num_processes = args.ngpu`). The code also includes periodic checks on GPU usage to monitor resource utilization.
 
+```
+CUDA_VISIBLE_DEVICES=0,1 python train_mlm_v1_ok_multi_gpu.py -train 1000 -test 100 -ngpu 2 -epoch 3 -logfile log_v1.txt
+```
+
 
 ## Version 2
 
@@ -61,3 +65,7 @@ CUDA_VISIBLE_DEVICES=0,1 python train_mlm_v2_nok_multi_gpu.py -train 1000 -test 
 This version of the code utilizes the `notebook_launcher()` function, which unexpectedly results in a runtime error. Upon comparing it with the previously functional version, it became evident that the line responsible for the error is `torch.cuda.is_available()` (refer to [line 74](https://github.com/unose/masked_lang_model/blob/main/CODE/train_mlm_v3_err_multi_gpu.py#L74)). This function call checks whether CUDA-enabled GPUs are available for use. 
 
 To diagnose the issue further, additional investigation into why `torch.cuda.is_available()` fails is necessary. 
+
+```
+CUDA_VISIBLE_DEVICES=0,1 python train_mlm_v3_err_multi_gpu.py -train 1000 -test 100 -ngpu 2 -epoch 3 -logfile log_v3.txt
+```
